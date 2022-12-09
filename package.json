@@ -3,9 +3,10 @@
     "version": "0.0.1",
     "main": "index.js",
     "scripts": {
+        "start": "node index.js",
         "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent",
         "resetdb": "knex migrate:rollback && knex migrate:latest && knex seed:run",
-        "nodemon": "nodemon index.js"
+        "server": "nodemon index.js"
     },
     "repository": {
         "type": "git",
