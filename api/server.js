@@ -1,6 +1,10 @@
 const express = require('express');
 const server = express();
+server.use(express.json())
 const ProjectRoute = require('./projects/projects-router')
+const {logger} = require('./projects/projects-middleware')
+
+server.use(logger) 
 
 server.use('/api/projects', ProjectRoute)
 
