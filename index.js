@@ -12,8 +12,11 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Pull your server into this file and start it!
 */
-const server = require('./api/server')
+require('dotenv').config()
 
-server.listen(3000, ()=>{
-    console.log('server running on 3000')
+const server = require('./api/server')
+const PORT = process.env.PORT || 9000;
+
+server.listen(PORT, ()=>{
+    console.log(`server running on ${process.env.PORT}`)
 })
