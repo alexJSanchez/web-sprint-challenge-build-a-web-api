@@ -1,8 +1,8 @@
 const express = require('express');
 const server = express();
-const ActionRoute = require('./actions/actions-router')
+const ProjectRoute = require('./projects/projects-router')
 
-server.use('/api/projects/', ActionRoute)
+server.use('/api/projects', ProjectRoute)
 
 // Configure your server here
 // Build your actions router in /api/actions/actions-router.js
