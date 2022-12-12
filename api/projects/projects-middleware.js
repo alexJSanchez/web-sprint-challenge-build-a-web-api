@@ -30,7 +30,8 @@ async function validateUserId(req, res, next) {
 function validatePost(req, res, next) {
     // DO YOUR MAGIC
     const {name,description} = req.body
-    if(!name||!name.trim() ||!description||!description.trim()){
+    
+    if(!name||!description){
       res.status(400).json({
         message: 'missing required text field'
       })
@@ -39,5 +40,7 @@ function validatePost(req, res, next) {
       next()
     }
   }
+ 
+
 
   module.exports = {validateUserId,validatePost,logger};

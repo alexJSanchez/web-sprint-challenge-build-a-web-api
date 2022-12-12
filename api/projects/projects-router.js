@@ -21,6 +21,11 @@ router.post('/', validatePost, async (req,res) => {
   const post = await ProjectMod.insert(req.item);
   res.json(post)
 })
+router.put('/:id', validateUserId, validatePost, async (req,res) => {
+  const {id} = req.user;
+  const updatedPost = await ProjectMod.update(id,req.item)
+      res.json(updatedPost)
+})
 
 
 module.exports = router;
