@@ -27,14 +27,16 @@ async function validateUserId(req, res, next) {
     // DO YOUR MAGIC
   }
 
-function validatePost(req, res, next) {
+async function validatePost(req, res, next) {
     // DO YOUR MAGIC
-    
-    const {name,description} = req.body
+    const {name,description,completed} = req.body;
     if(!name||!description){
       res.status(400).json({
         message: 'missing required text field'
       })
+    }else if(completed === undefined){ 
+      res.status(400).json({message: 'no completed '})
+
     }else{
       req.item = req.body
       next()
