@@ -26,4 +26,18 @@ async function validateUserId(req, res, next) {
     }
     // DO YOUR MAGIC
   }
-module.exports = {logger, validateUserId}
+
+function validatePost(req, res, next) {
+    // DO YOUR MAGIC
+    const {project_id,description,notes} = req.body
+    if(!project_id||!description||!notes){
+      res.status(400).json({
+        message: 'missing required text field'
+      })
+    }else{
+      req.item = req.body
+      next()
+    }
+  }
+
+module.exports = {logger, validateUserId, validatePost}
