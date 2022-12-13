@@ -29,8 +29,8 @@ async function validateUserId(req, res, next) {
 
 function validatePost(req, res, next) {
     // DO YOUR MAGIC
-    const {name,description} = req.body
     
+    const {name,description} = req.body
     if(!name||!description){
       res.status(400).json({
         message: 'missing required text field'
