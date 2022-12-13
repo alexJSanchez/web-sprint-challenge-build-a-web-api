@@ -27,5 +27,16 @@ router.put('/:id', validateUserId, validatePost, async (req,res) => {
       res.json(updatedPost)
 })
 
+router.delete('/:id', validateUserId, async (req,res) =>{
+  const {id} = req.user
+  const deletedItem = await ProjectMod.remove(id)
+  res.json(deletedItem)
+})
+
+router.get('/:id/actions', validateUserId , async (req,res)=>{
+  const {id} = req.user;
+  const actions = await ProjectMod.getProjectActions(id)
+  res.json(actions)
+})
 
 module.exports = router;
