@@ -28,4 +28,8 @@ router.get('/:id', validateUserId, (req,res) =>{
   res.json(req.item) 
  })
 
+ router.delete('/:id', validateUserId, async (req,res) => {
+ const removedAction = await ActionsMod.remove(req.params.id)
+ res.json(removedAction)
+ })
 module.exports = router;
